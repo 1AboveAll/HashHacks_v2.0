@@ -9,17 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-
-=======
->>>>>>> 661ffc82650c8176ef187c3872527f6bc0880e53
         <activity android:name=".Activity.ResidentActivity" />
         <activity android:name=".Activity.CommunityActivity" />
         <activity android:name=".Activity.AddEventActivity"/>
