@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/HashHacks_v2.0.iml" filepath="$PROJECT_DIR$/HashHacks_v2.0.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/HashHacks.iml" filepath="$PROJECT_DIR$/HashHacks.iml" />
+>>>>>>> 272b22d38890976356eb4870d12c0066ea6d0b79
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
