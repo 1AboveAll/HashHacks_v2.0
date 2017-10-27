@@ -1,0 +1,6 @@
+The things we have done so far:
+ One of the resident can create an event, he can upload images , select date using datepicker,time using timepicker and his current location would be obtained and the address would be shown.
+ The event would basically of community cleaning ,and the members can join the clean India event for the repective locality.
+ We have made some interactive ui designs for the home page,and the event creation page.
+ 
+ 
