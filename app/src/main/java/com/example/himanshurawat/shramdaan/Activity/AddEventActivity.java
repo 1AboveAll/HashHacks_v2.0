@@ -1,8 +1,25 @@
 package com.example.himanshurawat.shramdaan.Activity;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,17 +30,26 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 
+import com.bumptech.glide.Glide;
+import com.example.himanshurawat.shramdaan.Manifest;
 import com.example.himanshurawat.shramdaan.R;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
-public class AddEventActivity extends AppCompatActivity {
+public class AddEventActivity extends AppCompatActivity  {
     EditText nameTextView;
     EditText locationTextView;
     EditText dateTextView;
     EditText timeTextView;
     Button setImageButton;
     ImageView imageView;
+    private String imagePath = "", userChoosenTask;
+    private static final int REQUEST_CAMERA = 1, SELECT_FILE = 2;
+
 
     //////
     long date;
@@ -31,17 +57,20 @@ public class AddEventActivity extends AppCompatActivity {
     String location;
     String nameOfEvent;
 
+    ////////
+    private LocationManager locationManager;
+    private LocationListener locationListener;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
-        nameTextView=findViewById(R.id.activity_add_event_name_editText);
-        locationTextView=findViewById(R.id.activity_add_event_location_editText);
-
-        dateTextView=findViewById(R.id.activity_add_event_date_editText);
-        timeTextView=findViewById(R.id.activity_add_event_time_editText);
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        nameTextView = findViewById(R.id.activity_add_event_name_editText);
+        locationTextView = findViewById(R.id.activity_add_event_location_editText);
+        dateTextView = findViewById(R.id.activity_add_event_date_editText);
+        timeTextView = findViewById(R.id.activity_add_event_time_editText);
         dateTextView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,11 +95,11 @@ public class AddEventActivity extends AppCompatActivity {
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select Time");
                 mTimePicker.show();
-                time= (long)(3600 *hour + minute*60)+19800;
+                time = (long) (3600 * hour + minute * 60) + 19800;
 
             }
         });
-            }
+    }
 
 
 
@@ -92,9 +121,9 @@ public class AddEventActivity extends AppCompatActivity {
                         Calendar calendar = Calendar.getInstance();
                         calendar.set(year, month, day);
                         date = calendar.getTime().getTime();
-                        int hours=calendar.get(Calendar.HOUR_OF_DAY);
-                        int minutes=calendar.get(Calendar.MINUTE);
-                        date=date-(hours*3600)-(minutes*60);
+                        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+                        int minutes = calendar.get(Calendar.MINUTE);
+                        date = date - (hours * 3600) - (minutes * 60);
 
                         // Setting date selected in the edit text
                         dateTextView.setText(day + "/" + (month + 1) + "/" + year);
@@ -105,4 +134,19 @@ public class AddEventActivity extends AppCompatActivity {
         datePickerDialog.show();
 
     }
-}
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
