@@ -29,5 +29,7 @@ dependencies {
     compile 'com.google.firebase:firebase-database:11.4.2'
     //Firebase Storage
     compile 'com.google.firebase:firebase-storage:11.4.2'
+    //MaterialEditText
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
 }
 apply plugin: 'com.google.gms.google-services'
