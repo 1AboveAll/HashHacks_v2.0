@@ -16,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.ResidentLogin" />
         <activity android:name=".Activity.ResidentActivity" />
         <activity android:name=".Activity.CommunityActivity" />
         <activity android:name=".Activity.AddEventActivity"></activity>
