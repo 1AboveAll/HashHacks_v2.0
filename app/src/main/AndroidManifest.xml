@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.ResidentLogin" />
-        <activity android:name=".Activity.ResidentActivity"></activity>
+        <activity android:name=".Activity.ResidentActivity" />
+        <activity android:name=".Activity.CommunityActivity" />
+        <activity android:name=".Activity.AddEventActivity"></activity>
     </application>
 
 </manifest>
