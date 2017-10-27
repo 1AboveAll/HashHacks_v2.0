@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "864555790388",
+    "firebase_url": "https://shramdaan-ba0c7.firebaseio.com",
+    "project_id": "shramdaan-ba0c7",
+    "storage_bucket": "shramdaan-ba0c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864555790388:android:891832aff0e9e530",
+        "android_client_info": {
+          "package_name": "com.example.himanshurawat.shramdaan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864555790388-ql2tnidc1jll5c9rcvhn78j7vibe63b2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.himanshurawat.shramdaan",
+            "certificate_hash": "740e48b61aa087783c7fad20e6464eeffcd5ce15"
+          }
+        },
+        {
+          "client_id": "864555790388-01tua448agct10j8tj09agodh61gnevu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-0rQYiMSB4EGhhI9L44NjTEqXUCyxOVw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864555790388-01tua448agct10j8tj09agodh61gnevu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
