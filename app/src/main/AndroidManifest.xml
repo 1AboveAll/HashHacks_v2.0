@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 661ffc82650c8176ef187c3872527f6bc0880e53
->>>>>>> 64aaf685cfb1ca1700bad177b9bd0e06b5825084
         <activity android:name=".Activity.ResidentActivity" />
         <activity android:name=".Activity.CommunityActivity" />
         <activity android:name=".Activity.AddEventActivity"/>
