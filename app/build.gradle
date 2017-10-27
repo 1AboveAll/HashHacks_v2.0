@@ -31,5 +31,7 @@ dependencies {
     compile 'com.google.firebase:firebase-storage:11.4.2'
     //MaterialEditText
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    //Recycler View
+    compile 'com.android.support:design:26.1.0'
 }
 apply plugin: 'com.google.gms.google-services'
