@@ -36,7 +36,7 @@ public class CommunityActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id==R.id.community_activity_menu){
+        if(id==R.id.community_activity_menu_near_by_events){
             startActivity(new Intent(this,NearByEvents.class));
         }
         return true;

@@ -12,5 +12,7 @@ public class NearByEvents extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_near_by_events);
+        recyclerView  = findViewById(R.id.near_by_events_recycler_view);
+
     }
 }

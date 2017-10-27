@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.himanshurawat.shramdaan.Activity.NearByEvents">
 
-    <android.support.v7.app.AlertController.RecycleListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/near_by_events_recycler_view">
+        android:id="@+id/near_by_events_recycler_view"/>
 
-    </android.support.v7.app.AlertController.RecycleListView>
 
 </LinearLayout>
