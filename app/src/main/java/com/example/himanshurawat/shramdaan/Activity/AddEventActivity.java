@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TimePicker;
 
 import com.example.himanshurawat.shramdaan.R;
@@ -16,19 +18,28 @@ import com.example.himanshurawat.shramdaan.R;
 import java.util.Calendar;
 
 public class AddEventActivity extends AppCompatActivity {
+    EditText nameTextView;
     EditText locationTextView;
     EditText dateTextView;
     EditText timeTextView;
+    Button setImageButton;
+    ImageView imageView;
+
+    //////
     long date;
     long time;
-    long sum;
+    String location;
+    String nameOfEvent;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_event);
+        nameTextView=findViewById(R.id.activity_add_event_name_editText);
         locationTextView=findViewById(R.id.activity_add_event_location_editText);
+
         dateTextView=findViewById(R.id.activity_add_event_date_editText);
         timeTextView=findViewById(R.id.activity_add_event_time_editText);
         dateTextView.setOnClickListener(new OnClickListener() {
