@@ -1,6 +1,7 @@
 package com.example.himanshurawat.shramdaan.Activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -96,7 +97,7 @@ public class NearByEvents extends AppCompatActivity implements NearByEventAdapte
                         if (location != null) {
                             latMain=location.getLatitude();
                             lngMain=location.getLongitude();
-                            Log.d("checkk",latMain+", "+lngMain);
+                            Log.d("Hey",latMain+", "+lngMain);
 
                             fetchEventsFromFirebase();
                         }
@@ -178,7 +179,7 @@ public class NearByEvents extends AppCompatActivity implements NearByEventAdapte
                         addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                view.setBackgroundResource(R.color.colorAccent);
+                                view.setBackgroundResource(R.color.colorPrimaryDark);
                             }
                         });
 
@@ -192,5 +193,12 @@ public class NearByEvents extends AppCompatActivity implements NearByEventAdapte
             }
         });
         builder.create().show();
+    }
+
+    @Override
+    public void onEventClicked(View view, int position) {
+        Intent i=new Intent(NearByEvents.this,ViewEventActivity.class);
+        i.putExtra("distance",arrayList.get(position));
+        startActivity(i);
     }
 }

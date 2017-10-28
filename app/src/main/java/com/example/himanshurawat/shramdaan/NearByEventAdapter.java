@@ -68,6 +68,12 @@ public class NearByEventAdapter extends RecyclerView.Adapter<NearByEventAdapter.
             locationTextView=itemView.findViewById(R.id.location_textView);
             dateTimeTextView=itemView.findViewById(R.id.dateTime_textView);
             interestedButton=itemView.findViewById(R.id.interested_button);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onEventClicked(v,getAdapterPosition());
+                }
+            });
             this.listener=listener;
             interestedButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,5 +85,6 @@ public class NearByEventAdapter extends RecyclerView.Adapter<NearByEventAdapter.
     }
     public interface onButtonClickedInterface{
         public void onButtonClicked(View view,int position);
+        public void onEventClicked(View view,int position);
     }
 }
