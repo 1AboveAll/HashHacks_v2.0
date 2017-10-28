@@ -44,7 +44,8 @@
         <activity android:name=".Activity.AddEventActivity" />
         <activity android:name=".Activity.NearByEvents" />
         <activity android:name=".Activity.ViewEventActivity" />
-        <activity android:name=".Activity.ViewContributor"></activity>
+        <activity android:name=".Activity.ViewContributor" />
+        <activity android:name=".Activity.MayorActivity"></activity>
     </application>
 
 </manifest>

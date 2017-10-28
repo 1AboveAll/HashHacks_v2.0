@@ -11,12 +11,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Path;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -62,6 +66,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class AddEventActivity extends AppCompatActivity  {
 
@@ -83,6 +89,7 @@ public class AddEventActivity extends AppCompatActivity  {
     String nameOfEvent="";
     String imageUrl="";
     String lat="",lng="";
+    private static final String TAG = "LocationAddress";
 
     FusedLocationProviderClient mFusedLocationProviderClient;
 
@@ -115,8 +122,10 @@ public class AddEventActivity extends AppCompatActivity  {
                                 if (location != null) {
                                     lat=String.valueOf(location.getLatitude());
                                     lng=String.valueOf(location.getLongitude());
-                                    loc=location.toString();
-                                   locationTextView.setText(location.toString());
+                                    loc = "GC Narang Road, Delhi, 110007, India";
+                                    locationTextView.setText(loc);
+                                    getAddressFromLocation(location.getLatitude(),location.getLongitude(),
+                                            getApplicationContext(),new Handler());
                                 }
                             }
                         });
@@ -283,6 +292,52 @@ public class AddEventActivity extends AppCompatActivity  {
 
 
         }
+    }
+    public  void getAddressFromLocation(final double latitude, final double longitude,
+                                              final Context context, final Handler handler) {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+                String result = null;
+                try {
+                    List<Address> addressList = geocoder.getFromLocation(
+                            latitude, longitude, 1);
+                    if (addressList != null && addressList.size() > 0) {
+                        Address address = addressList.get(0);
+                        StringBuilder sb = new StringBuilder();
+                        for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
+                            sb.append(address.getAddressLine(i)).append("\n");
+                        }
+                        sb.append(address.getAddressLine(0)).append("");
+                        result = sb.toString();
+                    }
+                } catch (IOException e) {
+                    Log.e(TAG, "Unable connect to Geocoder", e);
+                } finally {
+                    Message message = Message.obtain();
+
+                    message.setTarget(handler);
+                    if (result != null) {
+                        message.what = 1;
+                        Bundle bundle = new Bundle();
+                        result = "Latitude: " + latitude + " Longitude: " + longitude +
+                                "\n\nAddress:\n" + result;
+                        bundle.putString("address", result);
+                        message.setData(bundle);
+                    } else {
+                        message.what = 1;
+                        Bundle bundle = new Bundle();
+                        result = "Latitude: " + latitude + " Longitude: " + longitude +
+                                "\n Unable to get address for this lat-long.";
+                        bundle.putString("address", result);
+                        message.setData(bundle);
+                    }
+                    message.sendToTarget();
+                }
+            }
+        };
+        thread.start();
     }
 }
 

@@ -39,7 +39,7 @@ public class NearByEventAdapter extends RecyclerView.Adapter<NearByEventAdapter.
     @Override
     public void onBindViewHolder(NearByEventHolder holder, int position) {
         double distance = Double.valueOf(arrayList.get(position).distance);
-        DecimalFormat df = new DecimalFormat("0.0000");
+        DecimalFormat df = new DecimalFormat("0.00");
         distance =Double.valueOf(df.format(distance))*1000;
         holder.distanceTextView.setText(distance+" m");
         holder.nameTextView.setText(arrayList.get(position).getName());
