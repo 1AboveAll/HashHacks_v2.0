@@ -12,23 +12,31 @@ public class Event implements Serializable{
     private String id;
     private String imageUrl;
     private String lat;
-    private String lon;
+    private String lng;
     private String location;
-    private String dateTime;
+    private String date;
+    private String type;
+    private String time;
 
-    public Event(){
-
-    }
-
-    public Event(String name, String id, String imageUrl, String lat, String lon, String location, String dateTime) {
+    public Event(String name, String id, String imageUrl, String lat, String lon, String location, String date, String time
+    ,String type) {
         this.name = name;
         this.id = id;
         this.imageUrl = imageUrl;
         this.lat = lat;
-        this.lon = lon;
+        this.lng = lon;
         this.location = location;
-        this.dateTime = dateTime;
+        this.date = date;
+        this.time = time;
+        this.type=type;
     }
+    public Event(){
+
+    }
+
+
+
+
 
     public String getName() {
         return name;
@@ -62,12 +70,12 @@ public class Event implements Serializable{
         this.lat = lat;
     }
 
-    public String getLon() {
-        return lon;
+    public String getLng() {
+        return lng;
     }
 
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setLng(String lng) {
+        this.lng = lng;
     }
 
     public String getLocation() {
@@ -78,11 +86,25 @@ public class Event implements Serializable{
         this.location = location;
     }
 
-    public String getDateTime() {
-        return dateTime;
+    public String getDate() {
+        return date;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+    public String getType(){
+        return type;
+    }
+    public void setType(String type){
+        this.type=type;
     }
 }

@@ -17,7 +17,10 @@ public class OpenHelper extends SQLiteOpenHelper {
     public static final String LATITUDE = "latitude";
     public static final String LONGITUDE = "longitude";
     public static final String LOCATION = "location";
-    public static final String DATE_TIME = "dateTime";
+    public static final String DATE = "date";
+    public static final String TIME="time";
+    public static final String TYPE = "type";
+
 
 
     public OpenHelper(Context context) {
@@ -27,7 +30,7 @@ public class OpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String table = "CREATE TABLE "+USER_TABLE_NAME+" ( "+NAME+" text, "+ID+" text, "+IMAGE_URL+" text, "+LATITUDE
-                +" text, "+LONGITUDE+" text, "+LOCATION+" text, "+DATE_TIME+" text);";
+                +" text, "+LONGITUDE+" text, "+LOCATION+" text, "+DATE+" text, "+TIME+" text, "+TYPE+" text);";
         sqLiteDatabase.execSQL(table);
     }
 

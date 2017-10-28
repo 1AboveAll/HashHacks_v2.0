@@ -36,12 +36,16 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/name_textView"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:text="Name of Event"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="Location of Event"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:id="@+id/location_textView"/>
         <TextView
             android:layout_width="match_parent"
