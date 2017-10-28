@@ -228,6 +228,8 @@ public class AddEventActivity extends AppCompatActivity  {
                         cv.put(OpenHelper.LOCATION,loc);
                         cv.put(OpenHelper.TYPE,"Community");   ///Mention Type
                         database.insert(OpenHelper.USER_TABLE_NAME,null,cv);
+                        Toast.makeText(AddEventActivity.this, "Event added", Toast.LENGTH_LONG).show();
+                        finish();
 
 
                     }
